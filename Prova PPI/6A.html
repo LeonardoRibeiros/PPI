@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=0, initial-scale=1.0">
+    <title>Questão 6A</title>
+    <style>
+        .container{
+    display:  grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas:
+    "header header header header"
+    "left content content content"
+    "footer footer footer footer";
+}
+.box{
+    margin: 2px;
+}
+.content{
+    background-color: rgb(179, 168, 168);
+    grid-area: content;
+    height: 400px;  
+}
+.left{
+    background-color: rgb(240, 138, 54);
+    grid-area: left;
+    height: 400px; 
+}
+.header{
+    background-color: rgb(47, 47, 238);
+    grid-area: header;
+    height: 130px;
+}
+.footer{
+     background-color: rgb(69, 187, 58);
+    grid-area: footer;
+    height: 130px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box content">.content</div>
+        <div class="box left">.left</div>
+        <div class="box footer">.footer</div>
+        <div class="box header">.header</div>  
+</body>
+</html>

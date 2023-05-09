@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 6B</title>
+    <style>
+        .container{
+    display: grid;
+    height: 98vh;
+    width: 98vw;
+    grid-template-areas:
+    "header header header header"
+    "left content content content"
+    "footer footer footer footer";
+}
+.box{
+    margin: 2px;
+}
+.content{
+    background-color: rgb(179, 168, 168);
+    grid-area: content;
+    height: 400px;  
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+.chat{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+input{
+    height: 50px;
+    width: 400px;
+    border: 2px solid black;
+}
+button{
+    display: flex;
+    border: 2px solid black;
+    height: 50px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+}
+.left{
+    background-color: rgb(240, 138, 54);
+    grid-area: left;
+    height: 400px; 
+}
+.header{
+    background-color: rgb(47, 47, 238);
+    grid-area: header;
+    height: 170px;
+}
+.footer{
+    background-color: rgb(69, 187, 58);
+    grid-area: footer;
+    height: 150px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box content">
+            <div class="chat">
+                <input type="text"></input>
+                <button>ENVIAR</button>
+            </div>
+        </div>
+        <div class="box left">.left</div>
+        <div class="box footer">.footer</div>
+        <div class="box header">.header</div>
+</body>
+</html>
