@@ -1,18 +1,24 @@
 <?php 
 include('conexao.php');
 
-if(isset($_POST['email']) || isset($_POST['senha'])){
+if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['telefone'])){
     
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
 
-    if(strlen($email) == 0 && strlen($senha) == 0){
-    }else if(strlen($email) == 0){
-        echo "<script>alert('Preencha seu e-mail');</script>";
+    if(strlen($nome) == 0 && strlen($email) == 0 && strlen($senha) == 0 && strlen($telefone) == 0){
+    }else if(strlen($nome) == 0){
+        echo "<script>alert('ERRO! O campo Nome esta vazio.');</script>";
+    } else if(strlen($email) == 0){
+        echo "<script>alert('ERRO! O campo Email esta vazio.');</script>";
     } else if(strlen($senha) == 0){
-        echo "<script>alert('Preencha sua senha');</script>";
+        echo "<script>alert('ERRO! O campo Senha esta vazio.');</script>";
+    } else if(strlen($telefone) == 0){
+        echo "<script>alert('ERRO! O campo Telefone esta vazio.');</script>";
     }else{
-          insereUsuario($email, $senha);
+          insereUsuario($nome,$email,$senha,$telefone);
           header('Location: index.php');
     }
 

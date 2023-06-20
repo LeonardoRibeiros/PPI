@@ -8,9 +8,9 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
 
     if(strlen($email) == 0 && strlen($senha) == 0){
     }else if(strlen($email) == 0){
-        echo "<script>alert('Preencha seu e-mail');</script>";
+        echo "<script>alert('ERRO! O campo Email esta vazio.');</script>";
     } else if(strlen($senha) == 0){
-        echo "<script>alert('Preencha sua senha');</script>";
+        echo "<script>alert('ERRO! O campo Senha esta vazio.');</script>";
     }else{
           verificaLoginSenha($email, $senha);
     }

@@ -45,50 +45,41 @@
 include_once "conexao.php";
 session_start();
 
-// Verificar se a pesquisa foi realizada
 if (isset($_SESSION['resultado'])) {
     $pesquisa = $_SESSION['resultado'];
-
-    // Verificar se a pesquisa não está vazia
     if (!empty($pesquisa)) {
-        // A pesquisa retornou resultados
         foreach ($pesquisa as $row) {
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $row['nome'] . "</td>";
             echo "<td>" . $row['email'] . "</td>";
             echo "<td>" . $row['senha'] . "</td>";
+            echo "<td>" . $row['telefone'] . "</td>";
             echo "<td><a class='linkF ' href='edit.php?id=" . $row['id'] . "'><button  class='button E'>Edit</button></a> | <a class='linkF ' href='delete.php?id=" . $row['id'] . "'><button class='button D'>Delete</button></a></a></td>";
             echo "</tr>";
         }
     } else {
-        // A pesquisa não retornou resultados
-        echo "Nenhum resultado encontrado.";
+        echo "Nenhum usuário encontrado.";
     }
 } else {
-    // A pesquisa não foi realizada, exibir todos os dados da tabela
     $resultado = recuperaALL();
-
-    // Verificar se o resultado não está vazio
     if (!empty($resultado)) {
-        // A função retornou resultados
         foreach ($resultado as $row) {
             echo "<tr>";
             echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $row['nome'] . "</td>";
             echo "<td>" . $row['email'] . "</td>";
             echo "<td>" . $row['senha'] . "</td>";
+            echo "<td>" . $row['telefone'] . "</td>";
             echo "<td><a class='linkF ' href='edit.php?id=" . $row['id'] . "'><button  class='button E'>Edit</button></a> | <a class='linkF' href='delete.php?id=" . $row['id'] . "'><button class='button D'>Delete</button></a></td>";
             echo "</tr>";
         }
     } else {
-        // A função não retornou resultados
-        echo "Nenhum resultado encontrado.";
+        echo "Nenhum usuário encontrado.";
     }
 }
 ?>
-
     </table> 
 </main>
-
-    
 </body>
 </html>

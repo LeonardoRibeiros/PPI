@@ -9,6 +9,6 @@ if(!isset($_GET['id'])){
 $id = $_GET['id'];
 
 deletarUsuario($id);
-header('Location: home.php');
+header('Location: inicial.php');
 
 ?>

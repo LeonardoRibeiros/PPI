@@ -12,29 +12,33 @@ function conectaBD(){
 
 }
 
-function editarUsuario($id, $email,$senha){
+function editarUsuario($id,$nome,$email,$senha,$telefone){
     try {
     $con = conectaBD();
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "UPDATE usuarios SET email=?, senha=? WHERE id=?";
+    $sql = "UPDATE Usuario SET nome=?, email=?, senha=?, telefone=? WHERE id=?";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $email);
-    $stm->bindParam(2, $senha);
-    $stm->bindParam(3, $id);
+    $stm->bindParam(1, $nome);
+    $stm->bindParam(2, $email);
+    $stm->bindParam(3, $senha);
+    $stm->bindParam(4, $telefone);
+    $stm->bindParam(5, $id);
     $stm->execute();
 } catch (PDOException $e) {
     echo 'ERROR: ' . $e->getMessage();
 }
 }
 
-function insereUsuario($email,$senha){
+function insereUsuario($nome,$email,$senha,$telefone){
     try{
     $con=conectaBD();
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql="INSERT INTO usuarios(email,senha) VALUES (?,?)";
+    $sql="INSERT INTO Usuario(nome,email,senha,telefone) VALUES (?,?,?,?)";
     $stm=$con->prepare($sql);
-    $stm->bindParam(1,$email);
-    $stm->bindParam(2,$senha);
+    $stm->bindParam(1, $nome);
+    $stm->bindParam(2, $email);
+    $stm->bindParam(3, $senha);
+    $stm->bindParam(4, $telefone);
     $stm->execute();
     } catch(PDOException $e){
         echo 'ERRO: '.$e->getMessage();
@@ -44,7 +48,7 @@ function insereUsuario($email,$senha){
 
 function recuperaUsuario($id) {
     $con = conectaBD();
-    $sql = "SELECT * FROM usuarios WHERE id = ?";
+    $sql = "SELECT * FROM Usuario WHERE id = ?";
     $stm = $con->prepare($sql);
     $stm->bindParam(1, $id);
     
@@ -54,7 +58,7 @@ function recuperaUsuario($id) {
         if ($result && count($result) > 0) {
             return $result[0];
         } else {
-            return null; // Retorna null se nenhum resultado for encontrado
+            return null; 
         }
     } catch (PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
@@ -64,7 +68,7 @@ function recuperaUsuario($id) {
 
 function recuperaAll(){
     $con=conectaBD();
-    $sql="SELECT * FROM usuarios";
+    $sql="SELECT * FROM Usuario";
     $stm=$con->prepare($sql);
 
     $stm->execute();
@@ -75,7 +79,7 @@ function recuperaAll(){
 function verificaLoginSenha($email, $senha) {
     $con=conectaBD();
    
-    $sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+    $sql = "SELECT * FROM Usuario WHERE email = ? AND senha = ?";
     $stm= $con->prepare($sql);
     $stm->bindParam(1,$email);
     $stm->bindParam(2,$senha);
@@ -84,15 +88,15 @@ function verificaLoginSenha($email, $senha) {
     
    
     if (count($result) > 0) {
-        header('Location: home.php');
+        header('Location: inicial.php');
     } else {
-        echo "<script>alert('Usuario invalido, verifique suas credenciais ou inscreva-se!');</script>";
+        echo "<script>alert('Credenciais incorretas ou inexistentes!');</script>";
     }
 }
 
 function deletarUsuario($id){
     $con=conectaBD();
-    $sql="DELETE FROM usuarios WHERE id=?";
+    $sql="DELETE FROM Usuario WHERE id=?";
     try {
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stm=$con->prepare($sql);
