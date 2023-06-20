@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS PPIdatabase;
-USE PPIdatabase;
+CREATE DATABASE IF NOT EXISTS ppidatabase;
+USE ppidatabase;
 
 CREATE TABLE `Animal` (
     `ID` int  NOT NULL auto_increment,
