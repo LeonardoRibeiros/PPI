@@ -32,101 +32,100 @@ if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha']) || 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="php.css">
-    <title>Document</title>
+    <title>Editar</title>
+    <style>
+        body{
+            background-color: #ececec;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       #bttn{
+        border: none;
+        width: 150px;
+        height: 40px;
+        background-color: #1c1d1f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+       }
+       #container{
+            background-color: white;
+            padding: 25px;
+            width: 400px;
+            height: 350px;
+            border: none;
+            box-shadow: 0px 10px 20px #4c5c6e;
+            border-radius: 15px;
+       }
+       #cabecalho{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        background-color: #1c1d1f;
+        border-radius: 15px;
+       }
+       #campos{
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        input{
+            border-radius: 6px;
+            height: 30px;
+            box-shadow: 0px 5px 15px #4c5c6e;
+            border: none;
+        }
+        #botao{
+            height: 15vh;
+            display: flex;
+            align-items: end;
+            justify-content: right;
+        }
+    </style>
 </head>
-<style>
-    body{
-        height: 98vh;
-        width: 98vw;
-        background-color: lightblue;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #botoes{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-direction: column;
-    }
-    p{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #email{
-        margin-top: 35px;
-    }
-    #senha{
-        margin-top: 25px;
-    }
-    #form{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 450px;
-        height: 450px;
-        border: solid black 1px;
-    }
-    #botao{
-        background-color: yellow;
-        border-radius: 5%;
-        width: 100px;
-        height: 25px;
-        border: 0px;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-</style>
 <body>
 <?php
 
-            $id = $_GET['id'];
+$id = $_GET['id'];
 
-        // Chame a função para obter os dados do usuário por ID
-        $usuario = recuperaUsuario($id);
-        // Verifique se o usuário foi encontrado
-        if ($usuario) {
-            $email = $usuario['email'];
-            $senha = $usuario['senha'];
-        } else {
-            // Usuário não encontrado, faça o tratamento adequado
-            // ...
-        }
-    ?>
 
-    <div id='form'> 
-    <h1>Alterar Cadastro</h1>
+$usuario = recuperaUsuario($id);
+if ($usuario) {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+}
+?>
 
-        <form action='' method='POST'> 
+
+
+    <div id="container">
+        <div id="cabecalho">
+            <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">Editar</h1>
+        </div>
+        <br>
+        <form action="" method="POST">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-           
-            <div class="campos um">
-
-                <div id='email'>
-                    <label>Email</label>
-                    <input type='text' name='email' value='<?php echo $email; ?>' required=""/>
-                    		
-                </div>
-
+            <div id="campos">
+                <input type="text" name="nome" placeholder="Nome Completo..." value='<?php echo $nome; ?>' required=""/> 
+                <br>
+                <input type="text" name="email" placeholder="Email..." value='<?php echo $email; ?>' required=""/> 
+                <br>
+                <input type="password" name="senha" placeholder="Senha..." value='<?php echo $senha; ?>' required=""/> 
+                <br>
+                <input type="text" name="telefone" placeholder="Telefone..." value='<?php echo $telefone; ?>' required=""/> 
             </div>
-
-                <div id='senha'>
-                    <label>Senha</label>
-                    <input type='text' name='senha' value='<?php echo $senha; ?>' required=""/>
-                </div>
-                <div id="botoes">
-                  <input id="botao" type='submit' value='Confirmar' class='btn'>  
-                </div>
+            <div id="botao">
+                <input id="bttn" type='submit' value='Confirmar' class='btn'> 
             </div>
-            
         </form>
     </div>
-
-    
 </body>
 </html>

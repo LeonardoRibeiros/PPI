@@ -23,71 +23,83 @@ if(isset($_POST['email']) || isset($_POST['senha'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        body{
+            background-color: #ececec;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       button{
+        border: none;
+        width: 150px;
+        height: 40px;
+        background-color: #1c1d1f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+       }
+       #container{
+            background-color: white;
+            padding: 25px;
+            width: 400px;
+            height: 300px;
+            border: none;
+            box-shadow: 0px 10px 20px #4c5c6e;
+            border-radius: 15px;
+       }
+       #cabecalho{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        background-color: #1c1d1f;
+        border-radius: 15px;
+       }
+       #campos{
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        input{
+            border-radius: 6px;
+            height: 40px;
+            box-shadow: 0px 5px 15px #4c5c6e;
+            border: none;
+        }
+        #botao{
+            height: 10vh;
+            display: flex;
+            align-items: end;
+            justify-content: space-around;
+        }
+    </style>
 </head>
-<style>
-    body{
-        height: 98vh;
-        width: 98vw;
-        background-color: lightblue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #botoes{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-direction: column;
-    }
-    p{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #email{
-        margin-top: 25px;
-    }
-    #senha{
-        margin-bottom: 35px;
-    }
-    #form{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 450px;
-        height: 450px;
-        border: solid black 1px;
-    }
-    button{
-        background-color: yellow;
-        border-radius: 5%;
-        width: 100px;
-        height: 25px;
-        border: 0px;
-        margin-bottom: 15px;
-    }
-</style>
 <body>
-    <div id="form">
-        <h1>ACESSE SUA CONTA</h1>
+    <div id="container">
+        <div id="cabecalho">
+            <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: white;">LOG IN</h1>
+        </div>
+        <br>
         <form action="" method="POST">
-            <p id="email">
-                <label for="email">E-mail</label>  
-                <input type="text" name="email"> 
-            </p>
-            <p id="senha">
-                <label for="senha">Senha</label>  
-                <input type="password" name="senha"> 
-            </p>
-            <div id="botoes">
-                 <button type="submit">Entrar</button>
-                 <a id="sign" href="cadastro.php">Inscrever-se</a>
+            <div id="campos">
+                <BR></BR>
+                <input type="text" name="email" placeholder="Email..." > 
+                <br>
+                <input type="password" name="senha" placeholder="Senha..." > 
+                <br>
+            
+            </div>
+            <div id="botao">
+                <a id="sign" href="cadastro.php" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Registrar-se</a>
+                <button type="submit">Cadastrar</button>
             </div>
         </form>
-    </div> 
+    </div>
 </body>
 </html>
