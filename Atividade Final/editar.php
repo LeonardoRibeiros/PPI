@@ -2,6 +2,7 @@
 
 include('conexao.php');
 
+
 if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha']) || isset($_POST['telefone']) || isset($_POST['id'])){
     
     $id = $_POST['id'];
@@ -92,8 +93,10 @@ if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha']) || 
 <body>
 <?php
 
-$id = $_GET['id'];
+$id = $_POST['id'];
+echo($id);
 $usuario = recuperaUsuario($id);
+var_dump($usuario);
 if ($usuario) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];

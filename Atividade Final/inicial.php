@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Inicial</title>
     <style>
-        body{
+       body{
             background-color: #ececec;
         }
        #pesquisabox{
@@ -19,8 +19,8 @@
        }
        #pesquisaelem{
         display: flex;
-        width: 60%;
-        justify-content: space-around;
+        width: 100%;
+        padding: 10px;
        }
        button{
         border: none;
@@ -34,12 +34,15 @@
        input{
         width: 220px;
        }
+       #space{
+        width: 30px;
+       }
     </style>
 </head>
 <body>
     <main>
         <table class='tabela'>
-        <form method="GET" action="pesquisa.php" >
+        form method="GET" action="pesquisa.php" >
             <div id="container">
                 <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Usuário</h1>
                 
@@ -48,7 +51,10 @@
                     <div id="pesquisaelem">
                         <input name="pesquisa" placeholder="Email" class="input" type="text">
                     <button class="btn-icon-content">Pesquisar</button>
+                    <div id="space"></div>
+                    <a id="sign" href="cadastro.php" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #1c1d1f; font-weight: bolder;">Cadastrar Usuário</a>
                     </div>
+                    
                 </div>
             </div>
         </form> 
