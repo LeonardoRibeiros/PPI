@@ -93,8 +93,6 @@ if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha']) || 
 <?php
 
 $id = $_GET['id'];
-
-
 $usuario = recuperaUsuario($id);
 if ($usuario) {
     $nome = $_POST['nome'];

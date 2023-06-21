@@ -53,9 +53,11 @@
             </div>
         </form> 
             <tr>
-                <th>Code</th>
+                <th>ID</th>
+                <th>Nome</th>
                 <th>Email</th>
                 <th>Senha</th>
+                <th>Telefone</th>
                 <th>Ações</th>
             </tr>
             <?php
@@ -72,7 +74,7 @@
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['senha'] . "</td>";
                 echo "<td>" . $row['telefone'] . "</td>";
-                echo "<td><a class='linkF ' href='edit.php?id=" . $row['id'] . "'><button  class='button E'>Edit</button></a> | <a class='linkF ' href='delete.php?id=" . $row['id'] . "'><button class='button D'>Delete</button></a></a></td>";
+                echo "<td><a class='linkF ' href='editar.php?id=" . $row['id'] . "'><button  class='button E'>Edit</button></a> | <a class='linkF ' href='deletar.php?id=" . $row['id'] . "'><button class='button D'>Delete</button></a></a></td>";
                 echo "</tr>";
             }
         } else {
@@ -88,7 +90,7 @@
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['senha'] . "</td>";
                 echo "<td>" . $row['telefone'] . "</td>";
-                echo "<td><a class='linkF ' href='edit.php?id=" . $row['id'] . "'><button  class='button E'>Edit</button></a> | <a class='linkF' href='delete.php?id=" . $row['id'] . "'><button class='button D'>Delete</button></a></td>";
+                echo "<td><a class='linkF ' href='editar.php?id=" . $row['id'] . "'><button  class='button E'>Edit</button></a> | <a class='linkF' href='deletar.php?id=" . $row['id'] . "'><button class='button D'>Delete</button></a></td>";
                 echo "</tr>";
             }
         } else {
