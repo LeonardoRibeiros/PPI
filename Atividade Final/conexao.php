@@ -51,7 +51,6 @@ function recuperaUsuario($id) {
     $sql = "SELECT * FROM Usuario WHERE id = ?";
     $stm = $con->prepare($sql);
     $stm->bindParam(1, $id);
-    
     try {
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);

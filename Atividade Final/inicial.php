@@ -42,7 +42,7 @@
 <body>
     <main>
         <table class='tabela'>
-        form method="GET" action="pesquisa.php" >
+        <form method="GET" action="pesquisa.php" >
             <div id="container">
                 <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Usuário</h1>
                 
@@ -50,11 +50,12 @@
                 <div id="pesquisabox">
                     <div id="pesquisaelem">
                         <input name="pesquisa" placeholder="Email" class="input" type="text">
-                    <button class="btn-icon-content">Pesquisar</button>
+                        <div type="submit" class="search-box-icon">
+                            <button class="btn-icon-content">Pesquisar</button>
+                        </div>
                     <div id="space"></div>
                     <a id="sign" href="cadastro.php" style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: #1c1d1f; font-weight: bolder;">Cadastrar Usuário</a>
                     </div>
-                    
                 </div>
             </div>
         </form> 

@@ -92,11 +92,8 @@ if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha']) || 
 </head>
 <body>
 <?php
-
-$id = $_POST['id'];
-echo($id);
+$id = $_GET['id'];
 $usuario = recuperaUsuario($id);
-var_dump($usuario);
 if ($usuario) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -104,8 +101,6 @@ if ($usuario) {
     $telefone = $_POST['telefone'];
 }
 ?>
-
-
 
     <div id="container">
         <div id="cabecalho">
